@@ -5,5 +5,5 @@ description: Live out your dream hunting Crocs
 sources:
   - https://github.com/lachie83/croc-hunter
 maintainers:
-  - name: Lachlan Evenson
+name: croc-hunter
     email: lachlan.evenson@gmail.com
