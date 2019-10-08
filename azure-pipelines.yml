@@ -11,7 +11,7 @@ resources:
 variables:
   tag: '$(Build.BuildId)'
   imageName: '$(Build.Repository.Name)'
-  dockerHub: woapy
+  dockerHub: 'woapy'
 
 stages:
 - stage: Build_Docker
@@ -27,7 +27,6 @@ stages:
       inputs:
         command: login
         containerRegistry: $(dockerHub)
-
     - task: Docker@2
       displayName: Build an image and push
       inputs:
@@ -36,7 +35,6 @@ stages:
         repository: $(imageName)
         tags: |
           $(tag)
-
     - task: Docker@2
       displayName: Logout of ACR
       inputs:
