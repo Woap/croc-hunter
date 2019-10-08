@@ -14,8 +14,8 @@ variables:
   dockerHub: woapy
 
 stages:
-- stage: Build
-  displayName: Build image
+- stage: Build Docker
+  displayName: Build Docker
   jobs:  
   - job: Build
     displayName: Build
@@ -23,9 +23,22 @@ stages:
       vmImage: 'ubuntu-latest'
     steps:
     - task: Docker@2
+      displayName: Login to ACR
+      inputs:
+        command: login
+        containerRegistry: $(dockerHub)
+
+    - task: Docker@2
       displayName: Build an image and push
       inputs:
         command: buildAndPush
+        containerRegistry: $(dockerHub)
         repository: $(imageName)
         tags: |
           $(tag)
+
+    - task: Docker@2
+      displayName: Logout of ACR
+      inputs:
+        command: logout
+        containerRegistry: $(dockerHub)
