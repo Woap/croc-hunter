@@ -26,6 +26,6 @@ stages:
       displayName: Build an image and push
       inputs:
         command: buildAndPush
-        repository: woapy/$(imageName)
+        repository: $(imageName)
         tags: |
           $(tag)
