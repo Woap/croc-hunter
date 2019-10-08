@@ -10,7 +10,7 @@ resources:
 
 variables:
   tag: '$(Build.BuildId)'
-  imageName: '$(Build.Repository.Name)'
+  imageName: 'woapy/croc-hunter'
   dockerHub: 'woapy'
 
 stages:
