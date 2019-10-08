@@ -14,7 +14,7 @@ variables:
   dockerHub: woapy
 
 stages:
-- stage: Build Docker
+- stage: Build_Docker
   displayName: Build Docker
   jobs:  
   - job: Build
